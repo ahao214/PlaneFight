@@ -4,6 +4,7 @@ from plane_sprites import *
 
 class PlaneGame(object):
     """飞机大战主游戏"""
+
     def __init__(self):
         print("游戏初始化")
 
@@ -15,7 +16,10 @@ class PlaneGame(object):
         self.__create_sprites()
 
     def __create_sprites(self):
-        pass
+        # 创建背景精灵和精灵组
+        bg1 = Background()
+        bg2 = Background(True)
+        self.back_group = pygame.sprite.Group(bg1, bg2)
 
     def start_game(self):
         print("游戏开始")
@@ -32,15 +36,17 @@ class PlaneGame(object):
             pygame.display.update()
 
     def __event_handler(self):
-       for event in pygame.event.get():
-           # 判断是否退出游戏
+        for event in pygame.event.get():
+            # 判断是否退出游戏
             if event.type == pygame.QUIT:
                 PlaneGame.__game_over()
 
     def __check_collide(self):
         pass
+
     def __update_sprites(self):
-        pass
+        self.back_group.update()
+        self.back_group.draw(self.screen)
 
     @staticmethod
     def __game_over():
@@ -49,24 +55,8 @@ class PlaneGame(object):
         exit()
 
 
-
-
 if __name__ == '__main__':
     # 创建游戏对象
     game = PlaneGame()
     # 启动游戏
     game.start_game()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
