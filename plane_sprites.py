@@ -96,14 +96,15 @@ class Hero(GameSprite):
             self.rect.right = SCREEN_RECT.width
 
     def fire(self):
-        # 1.创建子弹精灵
-        bullet = Bullet()
-        # 2.设置精灵位置
-        bullet.rect.bottom = self.rect.y - 20
-        bullet.rect.centerx = self.rect.centerx
-        # 3.将精灵添加到精灵组
-        self.bullets.add(bullet)
-        
+        for i in (0, 1, 2)
+            # 1.创建子弹精灵
+            bullet = Bullet()
+            # 2.设置精灵位置
+            bullet.rect.bottom = self.rect.y - i * 20
+            bullet.rect.centerx = self.rect.centerx
+            # 3.将精灵添加到精灵组
+            self.bullets.add(bullet)
+
 
 class Bullet(GameSprite):
     """发射子弹精灵"""
